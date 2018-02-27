@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Mac,PHP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开启 Apache 服务 进入root用户模式下：$ sudo su - 进 Apache 目录：$ cd /etc/apache2/ Apache 开启：$ apachectl start Apache 关闭：$ apachectl stop Apache 重启：$ apachectl restart 本地访问：http://localhost/   （是否有出現 “It works!”，有就代">
+<meta name="keywords" content="Mac,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac PHP 环境">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/Mac PHP 环境/index.html">
+<meta property="og:site_name" content="wanggw911">
+<meta property="og:description" content="开启 Apache 服务 进入root用户模式下：$ sudo su - 进 Apache 目录：$ cd /etc/apache2/ Apache 开启：$ apachectl start Apache 关闭：$ apachectl stop Apache 重启：$ apachectl restart 本地访问：http://localhost/   （是否有出現 “It works!”，有就代">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-27T07:43:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac PHP 环境">
+<meta name="twitter:description" content="开启 Apache 服务 进入root用户模式下：$ sudo su - 进 Apache 目录：$ cd /etc/apache2/ Apache 开启：$ apachectl start Apache 关闭：$ apachectl stop Apache 重启：$ apachectl restart 本地访问：http://localhost/   （是否有出現 “It works!”，有就代">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/10/Mac PHP 环境/"/>
+
+
+
+
+
+  <title>Mac PHP 环境 | wanggw911</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wanggw911</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">少说话，多做事，多学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/Mac PHP 环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangguowen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wanggw911">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mac PHP 环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T00:00:00+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,050
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="开启-Apache-服务"><a href="#开启-Apache-服务" class="headerlink" title="开启 Apache 服务"></a>开启 Apache 服务</h2><ol>
+<li>进入root用户模式下：<code>$ sudo su -</code></li>
+<li>进 Apache 目录：<code>$ cd /etc/apache2/</code></li>
+<li>Apache 开启：<code>$ apachectl start</code></li>
+<li>Apache 关闭：<code>$ apachectl stop</code></li>
+<li>Apache 重启：<code>$ apachectl restart</code></li>
+<li>本地访问：<a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a>   （是否有出現 “It works!”，有就代表 Apache 已經正常運作了）</li>
+<li>配置目录：<code>/Library/WebServer/Documents</code></li>
+</ol>
+<a id="more"></a>
+<h2 id="开启-Apache-PHP-服务"><a href="#开启-Apache-PHP-服务" class="headerlink" title="开启 Apache PHP 服务"></a>开启 Apache PHP 服务</h2><ol>
+<li>备份Config：</li>
+<li>修改 httpd.conf：</li>
+<li>重启 Apache 服务：<code>$ apachectl restart</code></li>
+<li>添加 xxx.php 文件到配置目录：<code>/Library/WebServer/Documents</code></li>
+<li>访问 php 服务：<a href="http://localhost/xxx.php" target="_blank" rel="noopener">http://localhost/xxx.php</a></li>
+</ol>
+<p>备份Config：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br><span class="line">cp httpd.conf httpd.conf.bak</span><br></pre></td></tr></table></figure>
+<p>修改 httpd.conf：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">找到下面👇的一行，去掉 #</span><br><span class="line">#LoadModule php5_module libexec/apache2/libphp5.so</span><br></pre></td></tr></table></figure>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li>方法一：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">mysql 官网，下载 dmg，一路默认安装</a></li>
+<li>方法一：使用 HomeBrew 安装  <code>brew install mysql</code></li>
+</ol>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>设置PATH：<br><code>export PATH=/usr/local/mysql/bin:$PATH</code><br><code>echo $PATH</code></p>
+<p>安装完成后的提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">We&apos;ve installed your MySQL database without a root password. To secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line">MySQL is configured to only allow connections from localhost by default</span><br><span class="line"></span><br><span class="line">To connect run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line">To have launchd start mysql now and restart at login:</span><br><span class="line">  brew services start mysql</span><br><span class="line">Or, if you don&apos;t want/need a background service you can just run:</span><br><span class="line">  mysql.server start</span><br></pre></td></tr></table></figure>
+<h3 id="开启-mysql-server"><a href="#开启-mysql-server" class="headerlink" title="开启 mysql server"></a>开启 mysql server</h3><p>启动：</p>
+<ol>
+<li>开启 mysql server：<code>$ mysql.server start</code></li>
+<li>登录 mysql： <code>$ mysql -u root -p</code>，然后输入登录密码</li>
+</ol>
+<p>关闭：</p>
+<ol>
+<li>退出登录 mysql：<code>quit</code> or <code>exit</code></li>
+<li>关闭 mysql server：<code>$ mysql.server stop</code></li>
+</ol>
+<p>其他：</p>
+<ol>
+<li>设置登录 mysql 密码 <code>SET PASSWORD FOR &#39;root&#39;@&#39;localhost&#39; = PASSWORD(&#39;123456&#39;);</code></li>
+<li>查看 mysql 帮助：<code>quit</code></li>
+<li>命令行使用 mysql 的时候，是以 <code>;</code> 为结束符号，输错了可以直接输入 <code>;</code> 结束当前输入</li>
+</ol>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>参考：<a href="http://www.cnblogs.com/GarveyCalvin/p/4297282.html" target="_blank" rel="noopener">MySQL之终端（Terminal）管理数据库、数据表、数据的基本操作</a></p>
+<p>数据库操作：</p>
+<ol>
+<li>显示所有数据库：<code>show databases;</code></li>
+<li>删除某个数据库：<code>drop database xxxDB;</code></li>
+</ol>
+<p>表操作：</p>
+<ol>
+<li>进入某个数据库：<code>use xxxDB;</code></li>
+<li>查看当前使用的数据库：<code>select database();</code></li>
+<li>显示当前数据库所有的数据表：<code>show tables;</code></li>
+<li><a href="#code">建表</a></li>
+<li>显示表结构：<code>desc xxxTable;</code></li>
+<li>然后就是增删改查，修改表结构等等</li>
+</ol>
+<p><span id="code"><strong>建表代码：</strong></span></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table PEOPLE (</span><br><span class="line">ID int AUTO_INCREMENT PRIMARY KEY,</span><br><span class="line">NAME varchar(20) not null,</span><br><span class="line">AGE int not null,</span><br><span class="line">BIRTHDAY datetime);</span><br></pre></td></tr></table></figure>
+<h2 id="PHP-链接-Mysql"><a href="#PHP-链接-Mysql" class="headerlink" title="PHP 链接 Mysql"></a>PHP 链接 Mysql</h2><ol>
+<li>首先确保 mysql server 开启了：<code>$ mysql.server start</code></li>
+<li>参考 w3school：<a href="http://www.w3school.com.cn/php/php_mysql_connect.asp" target="_blank" rel="noopener">PHP MySQL 连接数据库</a>，编写 <a href="#sql_php">sql.php</a> 文件</li>
+<li>移动 sql.php 文件到目录：<code>/Library/WebServer/Documents</code></li>
+<li>测试是否可以正确链接：<a href="http://localhost/sql.php，看网页输出内容" target="_blank" rel="noopener">http://localhost/sql.php，看网页输出内容</a></li>
+<li>怎么感觉这么简单😂</li>
+<li>然后就是 php 操作的数据库的一些代码编写了：创建表，等等一些其他的操作了，可以先学习 w3school 教程。</li>
+</ol>
+<p><span id="sql_php"><strong>sql.php 内容：</strong></span></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$con = mysql_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;123456&quot;);</span><br><span class="line">if ($con) &#123;</span><br><span class="line">	echo &quot;连接数据库成功！&quot;;</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">	echo &quot;连接数据库失败！&quot;;</span><br><span class="line">	die(&apos;Could not connect: &apos; . mysql_error());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// some code</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="安装部署-PhpMyAdmin"><a href="#安装部署-PhpMyAdmin" class="headerlink" title="安装部署 PhpMyAdmin"></a>安装部署 PhpMyAdmin</h2><p>要管理Mysql，如果用命令行比较麻烦，开源的 phpMyAdmin 采用C/S的模式，方便管理。</p>
+<p><a href="https://www.phpmyadmin.net/downloads/" target="_blank" rel="noopener">phpMyAdmin 下载地址</a>，选择 zip 格式文件下载，然后解压</p>
+<p>解压后放置下面的目录<br>完整的目录为：/Library/WebServer/Documents/phpmyadmin/，<br>那么命令行进入这个目录，输入以下命令：<br>cp config.sample.inc.php config.inc.php<br>vim config.inc.php </p>
+<p>接着我们就可以在浏览器中输入URL：<a href="http://localhost/phpmyadmin/" target="_blank" rel="noopener">http://localhost/phpmyadmin/</a><br>输入 MySql 的用户名和密码就可以管理 MySql 的数据表了</p>
+<h2 id="模拟接口数据获取"><a href="#模拟接口数据获取" class="headerlink" title="模拟接口数据获取"></a>模拟接口数据获取</h2><p><a href="http://www.bkjia.com/PHPjc/1158770.html" target="_blank" rel="noopener">PHP编写简单的App接口，php编写app</a></p>
+<p>就一个 php 文件，里面写上 echo 返回的数据<br>直接用过网址访问就类似一个简单的get请求😂，简直不要太easy</p>
+<h2 id="接口调试的三种方式"><a href="#接口调试的三种方式" class="headerlink" title="接口调试的三种方式"></a>接口调试的三种方式</h2><ol>
+<li>在线模拟请求：<a href="http://www.sojson.com/httpRequest/" target="_blank" rel="noopener">http://www.sojson.com/httpRequest/</a></li>
+<li>Chrome浏览器插件：<a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?utm_source=plus" target="_blank" rel="noopener">postman</a></li>
+<li>终端命令发起请求，好像是最方便的方法哈😁😁😁</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 发起 get 请求</span><br><span class="line">curl -X GET &quot;http://localhost/api_get.php&quot; -m 30 -v</span><br><span class="line"></span><br><span class="line"># 发起 post 请求，参数type=1</span><br><span class="line">curl -X POST &quot;http://localhost/api_post.php&quot; -d &quot;type=1&quot; -m 30 -v</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://blog.allenchou.cc/mac-apache-php-mysql-setup/" target="_blank" rel="noopener">不用懶人包，在 OS X 上安裝 Apache, PHP, MySQL</a></li>
+<li><a href="http://www.jianshu.com/p/a95c9893b683" target="_blank" rel="noopener">Mac上简单搭建Web服务器</a> </li>
+<li><a href="http://www.bkjia.com/PHPjc/1158770.html" target="_blank" rel="noopener">PHP编写简单的App接口，php编写app</a></li>
+<li><a href="http://www.jianshu.com/p/0eca40163fcc" target="_blank" rel="noopener">用PHP编写一个APP的API</a></li>
+<li><a href="https://icocos.github.io/2017/04/16/PHP——APP接口是怎么来的？/" target="_blank" rel="noopener">PHP——APP接口是怎么来的？</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/18/iOS 创建 FramWork 并支持 Carthage/" rel="next" title="iOS 创建 FramWork 并支持 Carthage">
+                <i class="fa fa-chevron-left"></i> iOS 创建 FramWork 并支持 Carthage
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="wangguowen" />
+            
+              <p class="site-author-name" itemprop="name">wangguowen</p>
+              <p class="site-description motion-element" itemprop="description">一个有点小追求的程序员</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开启-Apache-服务"><span class="nav-number">1.</span> <span class="nav-text">开启 Apache 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启-Apache-PHP-服务"><span class="nav-number">2.</span> <span class="nav-text">开启 Apache PHP 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql"><span class="nav-number">3.</span> <span class="nav-text">Mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-mysql-server"><span class="nav-number">3.3.</span> <span class="nav-text">开启 mysql server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.4.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-链接-Mysql"><span class="nav-number">4.</span> <span class="nav-text">PHP 链接 Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署-PhpMyAdmin"><span class="nav-number">5.</span> <span class="nav-text">安装部署 PhpMyAdmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟接口数据获取"><span class="nav-number">6.</span> <span class="nav-text">模拟接口数据获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口调试的三种方式"><span class="nav-number">7.</span> <span class="nav-text">接口调试的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span class="author" itemprop="copyrightHolder">wangguowen</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<span class="post-meta-divider">|</span>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共12.2k字</span>
+</div>
+
+<span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
