@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Fastlane,蒲公英,自动打包,Jenkins,Tomcat," />
+  <meta name="keywords" content="Tomcat,Jenkins,Fastlane,蒲公英,自动打包," />
 
 
 
@@ -81,16 +81,16 @@
 
 
 <meta name="description" content="什么是 Tomcat ？什么，不知道什么是 Tomcat？ Tomcat是由Apache软件基金会下属的Jakarta项目开发的一个Servlet容器，按照Sun Microsystems提供的技术规范，实现了对Servlet和JavaServer Page（JSP）的支持，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台、安全域管理和Tomcat阀等。由于Tomcat本身也内">
-<meta name="keywords" content="Fastlane,蒲公英,自动打包,Jenkins,Tomcat">
+<meta name="keywords" content="Tomcat,Jenkins,Fastlane,蒲公英,自动打包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store">
+<meta property="og:title" content="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英&#x2F;App Store">
 <meta property="og:url" content="http://yoursite.com/2017/10/15/持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/index.html">
 <meta property="og:site_name" content="wanggw911">
 <meta property="og:description" content="什么是 Tomcat ？什么，不知道什么是 Tomcat？ Tomcat是由Apache软件基金会下属的Jakarta项目开发的一个Servlet容器，按照Sun Microsystems提供的技术规范，实现了对Servlet和JavaServer Page（JSP）的支持，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台、安全域管理和Tomcat阀等。由于Tomcat本身也内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T07:51:55.000Z">
+<meta property="og:updated_time" content="2018-03-01T08:52:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store">
+<meta name="twitter:title" content="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英&#x2F;App Store">
 <meta name="twitter:description" content="什么是 Tomcat ？什么，不知道什么是 Tomcat？ Tomcat是由Apache软件基金会下属的Jakarta项目开发的一个Servlet容器，按照Sun Microsystems提供的技术规范，实现了对Servlet和JavaServer Page（JSP）的支持，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台、安全域管理和Tomcat阀等。由于Tomcat本身也内">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store | wanggw911</title>
+  <title>持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/App Store | wanggw911</title>
   
 
 
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store</h1>
+          <h1 class="post-title" itemprop="name headline">持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/App Store</h1>
         
 
         <div class="post-meta">
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  464
+                  459
                 </span>
               
 
@@ -400,7 +400,7 @@
 <li>然后删除ROOT文件, </li>
 <li>重命名jenkins.war -&gt; ROOT.war</li>
 </ol>
-<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><p>在 jenkins/tomcat_jenkins/bin 目录下新建 setenv.sh 文件，<br>内容如下：<br>export JENKINS_HOME=/Users/songlijun/Work/Dev/jenkins</p>
+<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><p>在 jenkins/tomcat_jenkins/bin 目录下新建 setenv.sh 文件，<br>内容如下：<br>export JENKINS_HOME=/Users/usename/…/jenkins</p>
 <h2 id="Tomcat-相关操作：启动、关闭、查看日志"><a href="#Tomcat-相关操作：启动、关闭、查看日志" class="headerlink" title="Tomcat 相关操作：启动、关闭、查看日志"></a>Tomcat 相关操作：启动、关闭、查看日志</h2><p>进入Tomcat下的bin目录</p>
 <ol>
 <li>启动Tomcat：<code>./startup.sh</code></li>
@@ -412,11 +412,11 @@
 <li>浏览器输入：<a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a></li>
 <li>初始用户：<ol>
 <li>账号：admin</li>
-<li>密码：fbfad79f5ef14517a0f32b1082791944</li>
+<li>密码：password</li>
 </ol>
 </li>
 </ol>
-<p>密码保存的路径：/Users/wanggw/Desktop/2-MyProjects/Jenkins/secrets/initialAdminPassword</p>
+<p>密码保存的路径：/Users/username/…/Jenkins/secrets/initialAdminPassword</p>
 
       
     </div>
@@ -434,15 +434,15 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Tomcat/" rel="tag"># Tomcat</a>
+          
+            <a href="/tags/Jenkins/" rel="tag"># Jenkins</a>
+          
             <a href="/tags/Fastlane/" rel="tag"># Fastlane</a>
           
             <a href="/tags/蒲公英/" rel="tag"># 蒲公英</a>
           
             <a href="/tags/自动打包/" rel="tag"># 自动打包</a>
-          
-            <a href="/tags/Jenkins/" rel="tag"># Jenkins</a>
-          
-            <a href="/tags/Tomcat/" rel="tag"># Tomcat</a>
           
         </div>
       
@@ -455,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/15/持续集成二：Jenkins + Fastlane +  蒲公英/" rel="next" title="持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store">
-                <i class="fa fa-chevron-left"></i> 持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store
+              <a href="/2017/10/14/持续集成一：Fastlane + 蒲公英自动打包发布-自动打包上传 App Store/" rel="next" title="持续集成一：Fastlane + 蒲公英自动打包发布/自动打包上传 App Store">
+                <i class="fa fa-chevron-left"></i> 持续集成一：Fastlane + 蒲公英自动打包发布/自动打包上传 App Store
               </a>
             
           </div>
@@ -465,8 +465,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/18/iOS 创建 FramWork 并支持 Carthage/" rel="prev" title="iOS 创建 FramWork 并支持 Carthage">
-                iOS 创建 FramWork 并支持 Carthage <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/15/持续集成二：Jenkins + Fastlane +  蒲公英/" rel="prev" title="持续集成二：Jenkins + Fastlane +  蒲公英">
+                持续集成二：Jenkins + Fastlane +  蒲公英 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -644,7 +644,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共12.9k字</span>
+  <span class="post-count">博客全站共12.6k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Fastlane,蒲公英,自动打包,Jenkins," />
+  <meta name="keywords" content="Jenkins,Fastlane,蒲公英,自动打包," />
 
 
 
@@ -81,16 +81,16 @@
 
 
 <meta name="description" content="什么是 Jenkins ？Jenkins是一个用Java编写的开源的持续集成【CI：Continuous Integration】工具。在与Oracle发生争执后，项目从Hudson项目复刻。Jenkins提供了软件开发的持续集成服务。它运行在Servlet容器中（例如Apache Tomcat）。它支持软件配置管理（SCM）工具（包括AccuRev SCM、CVS、Subversion、Git、">
-<meta name="keywords" content="Fastlane,蒲公英,自动打包,Jenkins">
+<meta name="keywords" content="Jenkins,Fastlane,蒲公英,自动打包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store">
+<meta property="og:title" content="持续集成二：Jenkins + Fastlane +  蒲公英">
 <meta property="og:url" content="http://yoursite.com/2017/10/15/持续集成二：Jenkins + Fastlane +  蒲公英/index.html">
 <meta property="og:site_name" content="wanggw911">
 <meta property="og:description" content="什么是 Jenkins ？Jenkins是一个用Java编写的开源的持续集成【CI：Continuous Integration】工具。在与Oracle发生争执后，项目从Hudson项目复刻。Jenkins提供了软件开发的持续集成服务。它运行在Servlet容器中（例如Apache Tomcat）。它支持软件配置管理（SCM）工具（包括AccuRev SCM、CVS、Subversion、Git、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T07:51:48.000Z">
+<meta property="og:updated_time" content="2018-03-01T08:51:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store">
+<meta name="twitter:title" content="持续集成二：Jenkins + Fastlane +  蒲公英">
 <meta name="twitter:description" content="什么是 Jenkins ？Jenkins是一个用Java编写的开源的持续集成【CI：Continuous Integration】工具。在与Oracle发生争执后，项目从Hudson项目复刻。Jenkins提供了软件开发的持续集成服务。它运行在Servlet容器中（例如Apache Tomcat）。它支持软件配置管理（SCM）工具（包括AccuRev SCM、CVS、Subversion、Git、">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store | wanggw911</title>
+  <title>持续集成二：Jenkins + Fastlane +  蒲公英 | wanggw911</title>
   
 
 
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">持续集成二：Jenkins + Fastlane +  蒲公英上传 App Store</h1>
+          <h1 class="post-title" itemprop="name headline">持续集成二：Jenkins + Fastlane +  蒲公英</h1>
         
 
         <div class="post-meta">
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  767
+                  764
                 </span>
               
 
@@ -396,12 +396,12 @@
 </li>
 <li>下载最新的Jenkins.war：<a href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war" target="_blank" rel="noopener">jenkins.war</a></li>
 <li>进入war包所在目录，执行以下命令：<code>java -jar jenkins.war</code></li>
-<li>记住给出的安全密码：5042b7ad651f46058c24167507fabd41</li>
+<li>记住给出的安全密码：xxxxxx</li>
 <li>打开浏览器输入：<a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></li>
 <li>输入安全密码，弹出Jenkins安装界面，选择默认安装</li>
 <li>新建管理员账号密码：<ol>
-<li>账号：wanggw911</li>
-<li>密码：123567</li>
+<li>账号：usename</li>
+<li>密码：password</li>
 </ol>
 </li>
 </ol>
@@ -415,8 +415,8 @@
 <li>浏览器重新启动jenkins服务：<code>http://localhost:8080/restart</code></li>
 <li>浏览器重新加载配置信息：<code>http://localhost:8080/reload</code></li>
 </ul>
-<h2 id="Jenkins-本地构建"><a href="#Jenkins-本地构建" class="headerlink" title="Jenkins 本地构建"></a>Jenkins 本地构建</h2><p>Jenkins 本地 job 地址：<code>/Users/wanggw/.jenkins/workspace/AutoRealseToPgyer</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. cd 到 jenkins.war 目录</span><br><span class="line">/Users/wanggw/Desktop/2-MyProjects/Jenkins</span><br><span class="line">2. 执行：</span><br><span class="line">java -jar jenkins.war --httpPort=8081</span><br></pre></td></tr></table></figure>
+<h2 id="Jenkins-本地构建"><a href="#Jenkins-本地构建" class="headerlink" title="Jenkins 本地构建"></a>Jenkins 本地构建</h2><p>Jenkins 本地 job 地址：<code>/Users/usename/.jenkins/workspace/AutoRealseToPgyer</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. cd 到 jenkins.war 目录</span><br><span class="line">/Users/usename/.../Jenkins</span><br><span class="line">2. 执行：</span><br><span class="line">java -jar jenkins.war --httpPort=8081</span><br></pre></td></tr></table></figure>
 <p>构建本地的 Jenkins 时遇到一些问题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. carthage 项目需要打开 Xcode，把 Scheme 的 shared 给勾选上</span><br><span class="line">    1. 不然会一直报错：第三方库 build 不了</span><br><span class="line">2. carthage 更新命令设置： </span><br><span class="line">    1. carthage update --platform iOS --cache-builds</span><br><span class="line">3. 如果遇到下面的报错❌，你可能需要把 Xcode 关闭掉再进行构建</span><br><span class="line">    1. error: failed to remove /Users/wanggw/Library/Developer/Xcode/DerivedData/WLLive-bwgscbncuukfahgywqidzldwqefu/Build/Intermediates.noindex/ArchiveIntermediates/WLLive/InstallationBuildProductsLocation/Applications/WLLive.app/Info.plist: “Info.plist” couldn’t be removed.</span><br></pre></td></tr></table></figure>
 <h2 id="Jenkins-码云-插件"><a href="#Jenkins-码云-插件" class="headerlink" title="Jenkins 码云+插件"></a>Jenkins 码云+插件</h2><p>码云（Gitee.com）钩子功能（callback），是帮助用户 push 了代码后，自动回调一个您设定的 http 地址。 这是一个通用的解决方案，用户可以自己根据不同的需求，来编写自己的脚本程序（比如发邮件，自动部署等）</p>
@@ -449,13 +449,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Jenkins/" rel="tag"># Jenkins</a>
+          
             <a href="/tags/Fastlane/" rel="tag"># Fastlane</a>
           
             <a href="/tags/蒲公英/" rel="tag"># 蒲公英</a>
           
             <a href="/tags/自动打包/" rel="tag"># 自动打包</a>
-          
-            <a href="/tags/Jenkins/" rel="tag"># Jenkins</a>
           
         </div>
       
@@ -468,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/14/持续集成一：Fastlane + 蒲公英自动打包发布-自动打包上传 App Store/" rel="next" title="持续集成一：Fastlane + 蒲公英自动打包发布/自动打包上传 App Store">
-                <i class="fa fa-chevron-left"></i> 持续集成一：Fastlane + 蒲公英自动打包发布/自动打包上传 App Store
+              <a href="/2017/10/15/持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/" rel="next" title="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/App Store">
+                <i class="fa fa-chevron-left"></i> 持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/App Store
               </a>
             
           </div>
@@ -478,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/15/持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英/" rel="prev" title="持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store">
-                持续集成三：Tomcat + Jenkins + Fastlane +  蒲公英 App Store <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/18/iOS 创建 FramWork 并支持 Carthage/" rel="prev" title="iOS 创建 FramWork 并支持 Carthage">
+                iOS 创建 FramWork 并支持 Carthage <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -657,7 +657,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共12.9k字</span>
+  <span class="post-count">博客全站共12.6k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>
